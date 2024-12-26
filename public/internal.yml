@@ -12,7 +12,10 @@ info:
         url: https://static.cycle.io/icons/logo/logo-white.svg
 servers:
     - description: Cycle Internal API
-      url: http+unix:/var/run/cycle/api/api.sock
+      url: http://localhost
+      x-unix-socket:
+          description: Unix socket path for internal API
+          url: /var/run/cycle/api/api.sock
 security:
     - tokenAuth: []
 paths:

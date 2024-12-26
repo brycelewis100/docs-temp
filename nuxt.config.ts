@@ -16,8 +16,7 @@ function loadYaml(filePath: string): any | null {
             `Error reading or parsing YAML file at ${filePath}:`,
             error
         )
-        throw new Error("BAD BAD YAML DOWNLOAD")
-        return null // Return null to handle gracefully
+        throw new Error(`Error reading or parsing YAML file at ${filePath}:`)
     }
 }
 
@@ -61,26 +60,10 @@ export default defineNuxtConfig({
             },
             {
                 spec: {
-                    content: loadYaml("./public/deprecated-public.yml"),
-                },
-                pathRouting: {
-                    basePath: "/deprecated-public",
-                },
-            },
-            {
-                spec: {
                     content: loadYaml("./public/internal.yml"),
                 },
                 pathRouting: {
                     basePath: "/internal",
-                },
-            },
-            {
-                spec: {
-                    content: loadYaml("./public/admin.yml"),
-                },
-                pathRouting: {
-                    basePath: "/admin",
                 },
             },
             {
